@@ -108,7 +108,7 @@ class PCA():
         loss = (loss-np.min(loss))/(np.max(loss)-np.min(loss))
         return loss
 
-    def decision(self,X,method = 'score_samples'):
+    def decision(self,X):
         """Predict anomaly score of each element.
         Parameters
         ----------
