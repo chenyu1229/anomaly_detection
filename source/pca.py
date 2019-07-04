@@ -94,8 +94,6 @@ class PCA():
                         iterated_power=self.iterated_power,
                         random_state=self.random_state)
         self.pca.fit(self.X)
-        # X_train_PCA = self.pca.transform(self.X)
-        # self.X_train_PCA_inverse = self.pca.inverse_transform(X_train_PCA)
         return self
 
     def anomalyScores(self,X1, X2):
@@ -108,7 +106,7 @@ class PCA():
             The input samples.
         """
         loss = np.sqrt(np.sum((np.array(X1)-np.array(X2))**2, axis=1))
-        loss = (loss-np.min(loss))/(np.max(loss)-np.min(loss))
+        # loss = (loss-np.min(loss))/(np.max(loss)-np.min(loss))
         return loss
 
     def decision(self,X):
@@ -126,3 +124,6 @@ class PCA():
         X_test_PCA = self.pca.transform(X)
         X_test_PCA_inverse = self.pca.inverse_transform(X_test_PCA)
         return self.anomalyScores(self.X, X_test_PCA_inverse)
+
+
+   
