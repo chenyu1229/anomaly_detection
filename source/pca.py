@@ -19,11 +19,13 @@ class PCA():
         If ``svd_solver == 'arpack'``, the number of components must be
         strictly less than the minimum of n_features and n_samples.
         Hence, the None case results in::
-            n_components == min(n_samples, n_features) - 1
+        n_components == min(n_samples, n_features) - 1
+
     copy : bool (default True)
         If False, data passed to fit are overwritten and running
         fit(X).transform(X) will not yield the expected results,
         use fit_transform(X) instead.
+
     whiten : bool, optional (default False)
         When True (False by default) the `components_` vectors are multiplied
         by the square root of n_samples and then divided by the singular values
@@ -32,6 +34,7 @@ class PCA():
         (the relative variance scales of the components) but can sometime
         improve the predictive accuracy of the downstream estimators by
         making their data respect some hard-wired assumptions.
+
     svd_solver : string {'auto', 'full', 'arpack', 'randomized'}
         auto :
             the solver is selected by a default policy based on `X.shape` and
@@ -49,20 +52,19 @@ class PCA():
             0 < n_components < min(X.shape)
         randomized :
             run randomized SVD by the method of Halko et al.
-        .. versionadded:: 0.18.0
+
     tol : float >= 0, optional (default .0)
         Tolerance for singular values computed by svd_solver == 'arpack'.
-        .. versionadded:: 0.18.0
+
     iterated_power : int >= 0, or 'auto', (default 'auto')
         Number of iterations for the power method computed by
         svd_solver == 'randomized'.
-        .. versionadded:: 0.18.0
+
     random_state : int, RandomState instance or None, optional (default None)
         If int, random_state is the seed used by the random number generator;
         If RandomState instance, random_state is the random number generator;
         If None, the random number generator is the RandomState instance used
         by `np.random`. Used when ``svd_solver`` == 'arpack' or 'randomized'.
-        .. versionadded:: 0.18.0
         """
         
     def __init__(self, n_components=None, copy=True, whiten=False,
@@ -91,7 +93,8 @@ class PCA():
                         tol=self.tol,
                         iterated_power=self.iterated_power,
                         random_state=self.random_state)
-        X_train_PCA = self.pca.fit_transform(self.X)
+        self.pca.fit(self.X)
+        X_train_PCA = self.pca.transform(self.X)
         self.X_train_PCA_inverse = self.pca.inverse_transform(X_train_PCA)
         return self
 
@@ -120,5 +123,6 @@ class PCA():
         ll : array, shape (n_samples,)
             Log-likelihood of each sample under the current model, which is the anomaly score of each element.
         """
-
+        X_test_PCA = self.pca.transform(X)
+        X_test_PCA_inverse = self.pca.inverse_transform(X_test_PCA)
         return self.anomalyScores(self.X, self.X_train_PCA_inverse)
