@@ -15,3 +15,7 @@ _______________________________________
     3. Kernel PCA Anomaly Detection
 
 2. Isolation Forest
+3. Local Outlier Factor
+4. Elliptic Envelope
+5. One Class SVM
+6. Convex Hull
