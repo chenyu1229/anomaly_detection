@@ -5,7 +5,7 @@ In data mining, [anomaly detection](https://en.wikipedia.org/wiki/Anomaly_detect
 
 This Anomaly Detection Toolbox is a Python module for machine learning anomaly detection built on top of [Numpy](https://www.numpy.org/), [Scipy](https://www.scipy.org/scipylib/index.html), [Scikit-Learn](https://scikit-learn.org/stable/) and other open source python libraries. 
 
-It is continously adding new model into this repository
+New models will be added into this repository continously
 _______________________________________
 
 ### Modules
