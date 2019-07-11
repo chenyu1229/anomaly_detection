@@ -9,9 +9,9 @@ New models will be added into this repository continously
 _______________________________________
 
 ### Modules
-1. PCA based Anomaly Detection
+1. PCA-based Anomaly Detection
     1. Normal PCA Anomaly Detection
     2. Sparse PCA Anomaly Detection
     3. Kernel PCA Anomaly Detection
-
-2. DBScan based Anomaly Detection
+2. DBScan-based Anomaly Detection
+3. Angle-based Anomaly Detection (ABAD)
