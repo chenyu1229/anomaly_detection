@@ -14,4 +14,6 @@ _______________________________________
     2. Sparse PCA Anomaly Detection
     3. Kernel PCA Anomaly Detection
 2. DBScan-based Anomaly Detection
-3. Angle-based Anomaly Detection (ABAD)
+3. Angle-based Anomaly Detection
+    1. Regular Angle-based Anomaly Detection (ABAD)
+    2. Fast Angle-based Anomaly Detection (FABAD)
