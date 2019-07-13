@@ -9,6 +9,7 @@ def _cos(x, a, b):
 class ABAD():
     def fit(self, X):
         self.X_train = check_array(X)
+        self.X_train = np.unique(self.X_train, axis=0)
         return self
 
     def decision(self,X):
