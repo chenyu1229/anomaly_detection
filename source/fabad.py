@@ -26,7 +26,6 @@ class FastABAD():
             raise Exception("Test data format error!")
 
         ind_arr = self.neigh.kneighbors(X_test,return_distance=False)
-        print(ind_arr)
         self.anomalyScores=[]
         for ix in range(X_test.shape[0]):
             cos = 1

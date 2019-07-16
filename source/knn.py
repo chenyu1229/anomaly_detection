@@ -15,7 +15,7 @@ class KNN():
         self.n_jobs = n_jobs
 
     def fit(self, X):
-        X = check_array(X)
+        self.X_train = check_array(X)
         self.neigh = NearestNeighbors(n_neighbors=self.n_neighbors,
                                 radius=self.radius,
                                 algorithm=self.algorithm,
@@ -24,8 +24,13 @@ class KNN():
                                 p=self.p,
                                 metric_params=self.metric_params,
                                 n_jobs=self.n_jobs)
-        self.neigh.fit(X)
+        self.neigh.fit(self.X_train)
 
     def decision(self,X):
-        pass
+        X_test = check_array(X)
+        if X_test.shape[1] != self.X_train.shape[1]:
+            raise Exception("Test data format error!")
+        dis_arr, ind_arr = self.neigh.kneighbors(X_test,return_distance=True)
+        return np.mean(dis_arr,axis=1)
+
     
