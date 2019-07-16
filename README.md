@@ -17,3 +17,4 @@ _______________________________________
 3. Angle-based Anomaly Detection
     1. Regular Angle-based Anomaly Detection (ABAD)
     2. Fast Angle-based Anomaly Detection (FABAD)
+4. KNN-based Anomaly Detection
