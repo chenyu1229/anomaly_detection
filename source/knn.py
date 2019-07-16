@@ -3,8 +3,9 @@ from sklearn.neighbors import NearestNeighbors
 from sklearn.utils.validation import check_array
 
 class KNN():
-    def __init__(self, n_neighbors=5,radius=1.0, algorithm='auto', leaf_size=30,
+    def __init__(self, method = 'mean', n_neighbors=5,radius=1.0, algorithm='auto', leaf_size=30,
                 metric='minkowski', p=2, metric_params=None, n_jobs=1):
+        self.method = method
         self.n_neighbors = n_neighbors
         self.radius = radius
         self.algorithm = algorithm
@@ -31,6 +32,13 @@ class KNN():
         if X_test.shape[1] != self.X_train.shape[1]:
             raise Exception("Test data format error!")
         dis_arr, ind_arr = self.neigh.kneighbors(X_test,return_distance=True)
-        return np.mean(dis_arr,axis=1)
+        if self.method = 'mean':
+            return np.mean(dis_arr,axis=1)
+        elif self.method = 'median':
+            return np.median(dis_arr,axis=1)
+        elif self.method = 'largest':
+            return np.max(dis_arr,axis=1)
+        elif self.method = 'smallest':
+            return np.min(dis_arr[:,1:],axis=1)
 
     
