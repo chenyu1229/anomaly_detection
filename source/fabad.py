@@ -8,11 +8,25 @@ def _cos(x, a, b):
     return np.dot(v1, v2)/(np.linalg.norm(v1)*np.linalg.norm(v2))
 
 class FastABAD():
+    """
+    Angle based anomaly detection is based on the variance of angles between pairs of k nearest neighbors
+    data point.
+    Parameters:
+    -----------
+        n_neighbors : int, optional (default = 5)
+        Number of neighbors to use by default for :meth:`kneighbors` queries.
+    """
     def __init__(self,n_neighbors=5):
         self.n_neighbors = n_neighbors
         
 
     def fit(self, X):
+        """Fit detector.
+        Parameters
+        ----------
+        X : numpy array of shape (n_samples, n_features)
+            The input samples.
+        """
         self.X_train = check_array(X)
         self.X_train = np.unique(self.X_train, axis=0)
         self.neigh = NearestNeighbors(n_neighbors=self.n_neighbors)
@@ -21,6 +35,17 @@ class FastABAD():
         return self
 
     def decision(self,X):
+        """Predict anomaly score of each element.
+        Parameters
+        ----------
+        X : numpy array of shape (n_samples, n_features)
+            The input samples.
+
+        Returns
+        -------
+        ll : array, shape (n_samples,)
+            KNN distance of each sample under the current model, which is the anomaly score of each element.
+        """
         X_test = check_array(X)
         if X_test.shape[1] != self.X_train.shape[1]:
             raise Exception("Test data format error!")
