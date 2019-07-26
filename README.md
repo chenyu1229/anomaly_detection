@@ -9,12 +9,13 @@ New models will be added into this repository continously
 _______________________________________
 
 ### Modules
-1. PCA-based Anomaly Detection
-    1. Normal PCA Anomaly Detection
-    2. Sparse PCA Anomaly Detection
-    3. Kernel PCA Anomaly Detection
-2. DBScan-based Anomaly Detection
-3. Angle-based Anomaly Detection
-    1. Regular Angle-based Anomaly Detection (ABAD)
-    2. Fast Angle-based Anomaly Detection (FABAD)
-4. KNN-based Anomaly Detection
+1. PCA-Based Anomaly Detection
+    1. Normal PCA Anomaly Detection (PCA)
+    2. Sparse PCA Anomaly Detection (sparsePCA)
+    3. Kernel PCA Anomaly Detection (kernelPCA)
+2. DBScan-Based Anomaly Detection (DBSCAN)
+3. Angle-Based Anomaly Detection
+    1. Regular Angle Based Anomaly Detection (ABAD)
+    2. Fast Angle Based Anomaly Detection (FABAD)
+4. KNN Based Anomaly Detection (KNN)
+5. Minimum Covariance Determinant based Anomaly Detection (MCD)
