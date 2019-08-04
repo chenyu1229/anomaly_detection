@@ -55,4 +55,15 @@ class MCD():
             pass
 
         def decision(X):
-            pass
+        """Predict anomaly score of each element.
+        Parameters
+        ----------
+        X : numpy array of shape (n_samples, n_features)
+            The input samples.
+
+        Returns
+        -------
+        ll : array, shape (n_samples,)
+            Mahalanobis distance of each sample under the current model, which is the anomaly score of each element.
+        """
+        return self.mcd.mahalanobis(X)
